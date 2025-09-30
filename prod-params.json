@@ -1,0 +1,22 @@
+[
+  {
+    "ParameterKey": "InputBucketName",
+    "ParameterValue": "InputBucket12345"
+  },
+  {
+    "ParameterKey": "OutputBucketName",
+    "ParameterValue": "OutputBucket12345"
+  },
+  {
+    "ParameterKey": "FunctionName",
+    "ParameterValue": "ImageProcessorFunction"
+  }
+]
+
+
+
+
+
+
+
+
