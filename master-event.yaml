@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Master stack for Image Processor (S3 + Lambda + Events)
+Parrameters:
+  InputBucketName:
+    Type: String
+
+  OutputBucketName:  
+    Type: String
+
+  FunctionName:
+    Type: String  
+
+Resources:
+  S3Stack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/iac-bucket-azamcloud/s3-event.yaml
+      Parameters:
+        InputBucketName: !Ref InputBucketName
+        OutputBucketName: !Ref OutputBucketName
+        LambdaArn: !GetAtt LambdaStack.Outputs.Lambda
+
+  LambdaStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/iac-bucket-azamcloud/lambdafunc.yaml
+      Parameters:
+        FunctionName: !Ref FunctionName
+        InputBucket: !GetAtt S3Stack.Outputs.InputBucket
+        OutputBucket: !GetAtt S3Stack.Outputs.OutputBucket

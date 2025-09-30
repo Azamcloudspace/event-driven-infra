@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 resources for event-driven image processor
+
+Parameters:
+  InputBucketName:
+    Type: String
+  OutputBucketName:
+    Type: String
+  LambdaArn:
+    Type: String
+
+Resources:
+  InputBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref InputBucketName
+
+  OutputBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref OutputBucketName
+
+  S3Event:
+    Type: AWS::S3::BucketNotification
+    Properties:
+      Bucket: !Ref InputBucketName
+      NotificationConfiguration:
+        LambdaConfigurations:
+          - Event: s3:ObjectCreated:*
+            Function: !Ref LambdaArn
+
+Outputs:
+  InputBucket:
+    Value: !Ref InputBucket
+
+  OutputBucket:
+    Value: !Ref OutputBucket
