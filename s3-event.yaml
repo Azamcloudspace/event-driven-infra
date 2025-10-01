@@ -20,18 +20,10 @@ Resources:
     Properties:
       BucketName: !Ref OutputBucketName
 
-  S3Event:
-    Type: AWS::S3::BucketNotification
-    Properties:
-      Bucket: !Ref InputBucketName
-      NotificationConfiguration:
-        LambdaConfigurations:
-          - Event: s3:ObjectCreated:*
-            Function: !Ref LambdaArn
-
 Outputs:
   InputBucket:
     Value: !Ref InputBucket
 
   OutputBucket:
     Value: !Ref OutputBucket
+
