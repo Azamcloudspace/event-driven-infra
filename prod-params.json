@@ -13,7 +13,7 @@
   },
   {
     "ParameterKey": "GitHubRepo",
-    "ParameterValue": "event-driven-infra"
+    "ParameterValue": "event-driven-code"
   },
   {
     "ParameterKey": "GitHubToken",
@@ -24,6 +24,7 @@
     "ParameterValue": "ImageProcessorFunction"
   }
 ]
+
 
 
 
