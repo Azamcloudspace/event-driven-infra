@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Lambda + Role for event-driven image processor
 
 Parameters:
-  InputBucket:
+  InputBucketName:
     Type: String
     
   FunctionName:
@@ -42,11 +42,12 @@ Resources:
       Action: lambda:InvokeFunction
       FunctionName: !Ref ImageProcessorFunction
       Principal: s3.amazonaws.com
-      SourceArn: !Ref InputBucket
+      SourceArn: !Sub arn:aws:s3:::${InputBucketName}
 
 Outputs:
   Lambda:
     Value: !GetAtt ImageProcessorFunction.Arn
+
 
 
 
