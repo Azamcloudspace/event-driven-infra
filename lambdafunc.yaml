@@ -55,6 +55,7 @@ ImageProcessorFunction:
 
 Outputs:
   Lambda:
-    Value: !Ref ImageProcessorFunction
+    Value: !GetAtt ImageProcessorFunction.Arn
+
 
 
