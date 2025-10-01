@@ -6,8 +6,6 @@ Parameters:
     Type: String
   OutputBucketName:
     Type: String
-  LambdaArn:
-    Type: String
 
 Resources:
   InputBucket:
@@ -26,4 +24,5 @@ Outputs:
 
   OutputBucket:
     Value: !Ref OutputBucket
+
 
