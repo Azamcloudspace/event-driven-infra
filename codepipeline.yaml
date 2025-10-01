@@ -12,12 +12,6 @@ Parameters:
   GitHubToken:
     Type: String
     NoEcho: true
-  ECSClusterName:
-    Type: String
-  ECSServiceName:
-    Type: String
-  CodeBuildProject:
-    Type: String
   Lambda:
     Type: String
 
@@ -76,6 +70,7 @@ Resources:
                     - Name: BuildOutput
                   Configuration:
                     FunctionName: !Ref Lambda
+
 
 
 
