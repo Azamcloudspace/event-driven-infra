@@ -28,6 +28,7 @@ Resources:
       Parameters:
         InputBucketName: !Ref InputBucketName
         OutputBucketName: !Ref OutputBucketName
+        Lambda: !GetAtt LambdaStack.Outputs.Lambda
 
   LambdaStack:
     Type: AWS::CloudFormation::Stack
@@ -35,8 +36,8 @@ Resources:
       TemplateURL: https://s3.amazonaws.com/iac-bucket-azamcloud/lambdafunc.yaml
       Parameters:
         FunctionName: !Ref FunctionName
-        InputBucket: !GetAtt S3Stack.Outputs.InputBucket
-
+        InputBucketName: !Ref InputBucketName
+        
   CodePipelineStack:
     Type: AWS::CloudFormation::Stack
     Properties:
@@ -47,6 +48,7 @@ Resources:
         GitHubToken: !Ref GitHubToken
         Lambda: !GetAtt LambdaStack.Outputs.Lambda
         
+
 
 
 
