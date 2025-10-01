@@ -37,7 +37,6 @@ Resources:
       Parameters:
         FunctionName: !Ref FunctionName
         InputBucket: !GetAtt S3Stack.Outputs.InputBucket
-        OutputBucket: !GetAtt S3Stack.Outputs.OutputBucket
 
   CodePipelineStack:
     Type: AWS::CloudFormation::Stack
@@ -49,5 +48,6 @@ Resources:
         GitHubToken: !Ref GitHubToken
         Lambda: !GetAtt LambdaStack.Outputs.Lambda
         
+
 
 
