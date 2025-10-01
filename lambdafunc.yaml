@@ -36,15 +36,6 @@ Resources:
               print("Placeholder Lambda executed")
               return {"status": "ok"}
 
-  S3Event:
-    Type: AWS::S3::BucketNotification
-    Properties:
-      Bucket: !Ref InputBucket
-      NotificationConfiguration:
-        LambdaConfigurations:
-          - Event: s3:ObjectCreated:*
-            Function: !GetAtt ImageProcessorFunction.Arn
-
   LambdaPermission:
     Type: AWS::Lambda::Permission
     Properties:
@@ -56,6 +47,7 @@ Resources:
 Outputs:
   Lambda:
     Value: !GetAtt ImageProcessorFunction.Arn
+
 
 
 
