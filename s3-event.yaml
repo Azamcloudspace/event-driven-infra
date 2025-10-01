@@ -6,13 +6,19 @@ Parameters:
     Type: String
   OutputBucketName:
     Type: String
+  Lambda:
+    Type: String
 
 Resources:
   InputBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref InputBucketName
-
+      NotificationConfiguration:
+        LambdaConfigurations:
+          - Event: "s3:ObjectCreated:*"
+            Function: !Ref Lambda
+   
   OutputBucket:
     Type: AWS::S3::Bucket
     Properties:
@@ -24,6 +30,7 @@ Outputs:
 
   OutputBucket:
     Value: !GetAtt OutputBucket.Arn
+
 
 
 
