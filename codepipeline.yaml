@@ -67,9 +67,10 @@ Resources:
                 Provider: Lambda
                 Version: 1
               InputArtifacts:
-                - Name: BuildOutput
+                - Name: SourceOutput
               Configuration:
                     FunctionName: !Ref Lambda
+
 
 
 
