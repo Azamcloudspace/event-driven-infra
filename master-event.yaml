@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Master stack for Image Processor (S3 + Lambda + Events)
-Parrameters:
+Parameters:
   InputBucketName:
     Type: String
 
@@ -49,4 +49,5 @@ Resources:
         GitHubToken: !Ref GitHubToken
         Lambda: !GetAtt LambdaStack.Outputs.Lambda
         
+
 
