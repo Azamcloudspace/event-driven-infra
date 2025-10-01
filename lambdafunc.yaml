@@ -4,8 +4,6 @@ Description: Lambda + Role for event-driven image processor
 Parameters:
   InputBucket:
     Type: String
-  OutputBucket:
-    Type: String
   FunctionName:
     Type: String
   CodeS3Bucket:
@@ -53,3 +51,4 @@ ImageProcessorFunction:
 Outputs:
   Lambda:
     Value: !Ref ImageProcessorFunction
+
