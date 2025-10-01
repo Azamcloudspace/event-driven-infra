@@ -28,7 +28,6 @@ Resources:
       Parameters:
         InputBucketName: !Ref InputBucketName
         OutputBucketName: !Ref OutputBucketName
-        LambdaArn: !GetAtt LambdaStack.Outputs.Lambda
 
   LambdaStack:
     Type: AWS::CloudFormation::Stack
@@ -48,6 +47,7 @@ Resources:
         GitHubToken: !Ref GitHubToken
         Lambda: !GetAtt LambdaStack.Outputs.Lambda
         
+
 
 
 
