@@ -23,18 +23,18 @@ Resources:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
 
-ImageProcessorFunction:
-  Type: AWS::Lambda::Function
-  Properties:
-    FunctionName: !Ref FunctionName
-    Handler: index.handler
-    Role: !GetAtt LambdaRole.Arn
-    Runtime: python3.9
-    Code:
-      ZipFile: |
-        def handler(event, context):
-            print("Placeholder Lambda executed")
-            return {"status": "ok"}
+  ImageProcessorFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref FunctionName
+      Handler: index.handler
+      Role: !GetAtt LambdaRole.Arn
+      Runtime: python3.9
+      Code:
+        ZipFile: |
+          def handler(event, context):
+              print("Placeholder Lambda executed")
+              return {"status": "ok"}
 
   S3Event:
     Type: AWS::S3::BucketNotification
@@ -56,6 +56,7 @@ ImageProcessorFunction:
 Outputs:
   Lambda:
     Value: !GetAtt ImageProcessorFunction.Arn
+
 
 
 
