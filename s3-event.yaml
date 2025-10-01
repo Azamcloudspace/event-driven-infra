@@ -20,9 +20,10 @@ Resources:
 
 Outputs:
   InputBucket:
-    Value: !Ref InputBucket
+    Value: !GetAtt InputBucket.Arn
 
   OutputBucket:
-    Value: !Ref OutputBucket
+    Value: !GetAtt OutputBucket.Arn
+
 
 
