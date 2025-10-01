@@ -34,6 +34,8 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonECS_FullAccess
         - arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess
         - arn:aws:iam::aws:policy/AWSCodePipeline_FullAccess
+        - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess     
 
   MyPipeline:
     Type: AWS::CodePipeline::Pipeline
@@ -70,6 +72,7 @@ Resources:
                 - Name: SourceOutput
               Configuration:
                     FunctionName: !Ref Lambda
+
 
 
 
