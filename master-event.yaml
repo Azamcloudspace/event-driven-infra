@@ -10,6 +10,16 @@ Parrameters:
   FunctionName:
     Type: String  
 
+  GitHubOwner:
+    Type: String
+    
+  GitHubRepo:
+    Type: String
+    
+  GitHubToken:
+    Type: String
+    NoEcho: true
+
 Resources:
   S3Stack:
     Type: AWS::CloudFormation::Stack
@@ -28,3 +38,15 @@ Resources:
         FunctionName: !Ref FunctionName
         InputBucket: !GetAtt S3Stack.Outputs.InputBucket
         OutputBucket: !GetAtt S3Stack.Outputs.OutputBucket
+
+  CodePipelineStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/iac-bucket-azamcloud/codepipeline.yaml
+      Parameters:
+        GitHubOwner: !Ref GitHubOwner
+        GitHubRepo: !Ref GitHubRepo
+        GitHubToken: !Ref GitHubToken
+        Lambda: !GetAtt LambdaStack.Outputs.Lambda
+        
+
