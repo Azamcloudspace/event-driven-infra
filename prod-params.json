@@ -1,11 +1,11 @@
 [
   {
     "ParameterKey": "InputBucketName",
-    "ParameterValue": "InputBucket12345"
+    "ParameterValue": "inputBucket123450"
   },
   {
     "ParameterKey": "OutputBucketName",
-    "ParameterValue": "OutputBucket12345"
+    "ParameterValue": "outputBucket123450"
   },
   {
     "ParameterKey": "GitHubOwner",
@@ -24,6 +24,7 @@
     "ParameterValue": "ImageProcessorFunction"
   }
 ]
+
 
 
 
