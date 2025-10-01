@@ -58,18 +58,19 @@ Resources:
                 Repo: !Ref GitHubRepo
                 Branch: !Ref GitHubBranch
                 OAuthToken: !Ref GitHubToken
-            - Name: Deploy
-              Actions:
-                - Name: LambdaDeploy
-                  ActionTypeId:
-                    Category: Deploy
-                    Owner: AWS
-                    Provider: Lambda
-                    Version: 1
-                  InputArtifacts:
-                    - Name: BuildOutput
-                  Configuration:
+        - Name: Deploy
+          Actions:
+            - Name: LambdaDeploy
+              ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Provider: Lambda
+                Version: 1
+              InputArtifacts:
+                - Name: BuildOutput
+              Configuration:
                     FunctionName: !Ref Lambda
+
 
 
 
