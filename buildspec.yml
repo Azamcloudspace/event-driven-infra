@@ -10,6 +10,7 @@ phases:
       - echo Packaging templates...
       - aws s3 cp lambdafunc.yaml s3://iac-bucket-azamcloud/
       - aws s3 cp s3-event.yaml s3://iac-bucket-azamcloud/
+      - aws s3 cp codepipeline.yaml s3://iac-bucket-azamcloud/
       - aws cloudformation deploy --template-file master-event.yaml --stack-name ecs-infra-stack --capabilities CAPABILITY_NAMED_IAM --parameter-overrides file://prod-params.json
 
 artifacts:
