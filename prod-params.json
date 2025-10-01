@@ -8,10 +8,23 @@
     "ParameterValue": "OutputBucket12345"
   },
   {
+    "ParameterKey": "GitHubOwner",
+    "ParameterValue": "Azamcloudspace"
+  },
+  {
+    "ParameterKey": "GitHubRepo",
+    "ParameterValue": "event-driven-infra"
+  },
+  {
+    "ParameterKey": "GitHubToken",
+    "ParameterValue": "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"
+  },
+  {
     "ParameterKey": "FunctionName",
     "ParameterValue": "ImageProcessorFunction"
   }
 ]
+
 
 
 
