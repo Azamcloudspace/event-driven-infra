@@ -4,9 +4,6 @@ Parameters:
   InputBucketName:
     Type: String
 
-  OutputBucketName:  
-    Type: String
-
   FunctionName:
     Type: String  
 
@@ -33,7 +30,6 @@ Resources:
       TemplateURL: https://s3.amazonaws.com/iac-bucket-azamcloud/s3-event.yaml
       Parameters:
         InputBucketName: !Ref InputBucketName
-        OutputBucketName: !Ref OutputBucketName
         Lambda: !GetAtt LambdaStack.Outputs.Lambda
 
   LambdaStack:
@@ -62,6 +58,7 @@ Resources:
         TopicName: !Ref TopicName
         EndpointEmail: !Ref EndpointEmail
         
+
 
 
 
