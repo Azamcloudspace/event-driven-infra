@@ -4,8 +4,6 @@ Description: S3 resources for event-driven image processor
 Parameters:
   InputBucketName:
     Type: String
-  OutputBucketName:
-    Type: String
   Lambda:
     Type: String
 
@@ -18,18 +16,11 @@ Resources:
         LambdaConfigurations:
           - Event: "s3:ObjectCreated:*"
             Function: !Ref Lambda
-   
-  OutputBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !Ref OutputBucketName
 
 Outputs:
   InputBucket:
     Value: !GetAtt InputBucket.Arn
 
-  OutputBucket:
-    Value: !GetAtt OutputBucket.Arn
 
 
 
