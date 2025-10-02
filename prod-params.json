@@ -20,10 +20,19 @@
     "ParameterValue": "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"
   },
   {
+    "ParameterKey": "EndpointEmail",
+    "ParameterValue": "azamiheme19@gmail.com"
+  },
+  {
+    "ParameterKey": "TopicName",
+    "ParameterValue": "FileProcessedTopic"
+  },
+  {
     "ParameterKey": "FunctionName",
-    "ParameterValue": "ImageProcessorFunction"
+    "ParameterValue": "SNSProcessorFunction"
   }
 ]
+
 
 
 
