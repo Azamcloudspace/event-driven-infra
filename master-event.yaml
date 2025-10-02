@@ -19,7 +19,13 @@ Parameters:
   GitHubToken:
     Type: String
     NoEcho: true
+  
+  EndpointEmail:
+    Type: String
 
+  TopicName:
+    Type: String
+  
 Resources:
   S3Stack:
     Type: AWS::CloudFormation::Stack
@@ -47,7 +53,16 @@ Resources:
         GitHubRepo: !Ref GitHubRepo
         GitHubToken: !Ref GitHubToken
         Lambda: !GetAtt LambdaStack.Outputs.Lambda
+
+  SNSStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/iac-bucket-azamcloud/sns.yaml
+      Parameters:
+        TopicName: !Ref TopicName
+        EndpointEmail: !Ref EndpointEmail
         
+
 
 
 
