@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  TopicName:
+    Type: String
+    
+  EndpointEmail:
+    Type: String
+
+
+Resources:
+  FileProcessedTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Ref TopicName
+      
+  EmailSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint: !Ref EndpointEmail
+      Protocol: email
+      TopicArn: !Ref FileProcessedTopic
+
+Outputs:
+  SNSTopic:
+    Value: !Ref FileProcessedTopic
+
+  
+  SNSEmailSubscription:
+    Value: !Ref EmailSubscription
