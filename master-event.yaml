@@ -22,6 +22,10 @@ Parameters:
 
   TopicName:
     Type: String
+
+  Handler:
+    Type: String
+
   
 Resources:
   S3Stack:
@@ -39,6 +43,7 @@ Resources:
       Parameters:
         FunctionName: !Ref FunctionName
         InputBucketName: !Ref InputBucketName
+        Handler: !Ref Handler
         
   CodePipelineStack:
     Type: AWS::CloudFormation::Stack
@@ -58,6 +63,7 @@ Resources:
         TopicName: !Ref TopicName
         EndpointEmail: !Ref EndpointEmail
         
+
 
 
 
