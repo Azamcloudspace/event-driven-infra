@@ -7,6 +7,9 @@ Parameters:
     
   FunctionName:
     Type: String
+  
+  Handler:
+    Type: String
 
 Resources:
   LambdaRole:
@@ -27,7 +30,7 @@ Resources:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: !Ref FunctionName
-      Handler: index.handler
+      Handler: !Ref Handler
       Role: !GetAtt LambdaRole.Arn
       Runtime: python3.9
       Code:
@@ -47,6 +50,7 @@ Resources:
 Outputs:
   Lambda:
     Value: !GetAtt ImageProcessorFunction.Arn
+
 
 
 
