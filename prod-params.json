@@ -28,10 +28,15 @@
     "ParameterValue": "FileProcessedTopic"
   },
   {
+    "ParameterKey": "Handler",
+    "ParameterValue": "lambda-app.handler"
+  },
+  {
     "ParameterKey": "FunctionName",
     "ParameterValue": "SNSProcessorFunction"
   }
 ]
+
 
 
 
