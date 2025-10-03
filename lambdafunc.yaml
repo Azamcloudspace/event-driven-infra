@@ -25,6 +25,7 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AmazonSNSFullAccess
 
   ImageProcessorFunction:
     Type: AWS::Lambda::Function
@@ -50,6 +51,7 @@ Resources:
 Outputs:
   Lambda:
     Value: !GetAtt ImageProcessorFunction.Arn
+
 
 
 
